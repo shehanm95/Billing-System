@@ -1,0 +1,322 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.receipt-container {
+    background: #fff;
+    width: 600px;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid #002147;
+    padding-bottom: 20px;
+
+}
+
+.header img {}
+
+.check {
+    border: 1px solid red;
+}
+
+.logo {
+    width: 100%;
+
+}
+
+.college-info h1 {
+    color: #002147;
+    font-size: 32px;
+    margin: 0;
+}
+
+.college-info p {
+    color: #002147;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    margin: 30px 0;
+    color: #333;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.label {
+    font-weight: bold;
+    color: #555;
+}
+
+.value {
+    color: #333;
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-table th {
+    background-color: #d1d1d1;
+    text-align: left;
+    padding: 10px;
+}
+
+.payment-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.totals-section {
+    margin-top: 20px;
+    margin-left: auto;
+    width: 50%;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.total-row.highlight {
+    background-color: #d1d1d1;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.footer-note {
+    text-align: center;
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 50px;
+}
+
+/* Container for the key-value pairs */
+#receipt-details {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    /* Fixed width for labels, flexible for values */
+    gap: 8px 0;
+    /* Vertical spacing between rows */
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+/* Style for the labels (e.g., Student Name:) */
+#receipt-details .label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for the values (e.g., U RAVINDI...) */
+#receipt-details .value {
+    color: #555;
+    /* Optional: adds a very faint bottom border to match some bill styles */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Ensure the detail-row div acts as a fragment for the grid */
+.detail-row {
+    display: contents;
+    /* This is crucial: it makes the children direct grid items */
+}
+
+/* Table Styling to match the original */
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.payment-table th {
+    background-color: #e0e0e0;
+    text-align: left;
+    padding: 10px;
+    color: #333;
+}
+
+.payment-table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Totals section alignment */
+#totals {
+    margin-top: 20px;
+    float: right;
+    width: 250px;
+    /* Adjust based on preference */
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.total-line.highlighted {
+    background-color: #e0e0e0;
+    font-weight: bold;
+    padding: 10px 5px;
+    margin-top: 5px;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #receipt,
+    #receipt * {
+        visibility: visible;
+    }
+
+    #receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        /* Removes borders/shadows for a clean print */
+        box-shadow: none;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Styling for the print button container */
+.print-button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.btn-print {
+    padding: 10px 25px;
+    background-color: #002147;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* A4 Paper Settings */
+@media print {
+    @page {
+        size: A4;
+        margin: 10mm;
+        /* Standard margin to prevent printer cutting */
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .receipt-container {
+        width: 100% !important;
+        height: 277mm;
+        /* Full A4 height minus margins */
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+    }
+}
+
+/* Receipt Layout */
+.receipt-container {
+    width: 210mm;
+    /* A4 Width */
+    min-height: 260mm;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* Allows footer to be pushed down */
+    justify-content: space-between;
+}
+
+.content-wrapper {
+    flex-grow: 1;
+    /* Pushes the footer to the very bottom */
+}
+
+.header img {
+    max-width: 100%;
+    /* Prevents logo from overflowing width */
+    /* height: auto; */
+    display: block;
+}
+
+/* Footer Styling */
+.footer-note {
+    text-align: center;
+    color: #d9534f;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+    width: 100%;
+    border-top: 1px solid #eee;
+    /* Optional line above footer */
+    padding-top: 10px;
+}
+
+/* Ensure the table doesn't overflow */
+.payment-table {
+    width: 100%;
+    table-layout: fixed;
+    /* Prevents table from stretching too wide */
+    word-wrap: break-word;
+}
+
+@media print {
+    body {
+        /* This forces the browser to print background colors and images */
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Reset background colors for specific elements to ensure they trigger */
+    .payment-table th {
+        background-color: #e0e0e0 !important;
+    }
+
+    .total-line.highlighted {
+        background-color: #e0e0e0 !important;
+    }
+}

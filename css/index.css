@@ -1,0 +1,175 @@
+:root {
+    --primary-blue: #002147;
+    --accent-red: #8b0000;
+    --bg-gray: #f4f7f6;
+    --border-color: #d1d1d1;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-gray);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.form-wrapper {
+    background: white;
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.form-header h2 {
+    color: var(--primary-blue);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--bg-gray);
+    padding-bottom: 5px;
+    margin: 25px 0 15px 0;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+input,
+select {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s;
+}
+
+input:focus {
+    border-color: var(--primary-blue);
+}
+
+.payment-row {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.btn-secondary {
+    background: none;
+    border: 1px dashed var(--primary-blue);
+    color: var(--primary-blue);
+    padding: 8px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+}
+
+/* Existing styles above... */
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 600px) {
+    .form-wrapper {
+        padding: 20px;
+        margin: 10px;
+        width: auto;
+    }
+
+    /* Stack the Name/ID and Date/Type grids */
+    .input-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Fix the Payment Details Row */
+    .payment-row {
+        grid-template-columns: 1fr;
+        /* Stack Month, Installment, and Amount vertically */
+        gap: 8px;
+        padding: 15px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        background-color: #fafafa;
+    }
+
+    /* Make inputs full width in mobile */
+    .payment-row input,
+    .payment-row select {
+        width: 100%;
+        box-sizing: border-box;
+        /* Ensures padding doesn't push it out */
+    }
+
+    /* Optional: Add labels for clarity in stacked mode */
+    .payment-row .month::before {
+        content: "Month: ";
+        font-size: 12px;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .input-group {
+        max-width: 100% !important;
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    body {
+        padding: 5px 5px;
+    }
+}

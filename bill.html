@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipt</title>
+    <link rel="stylesheet" href="css/bill.css">
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+</head>
+
+<body>
+
+    <div class="print-button-container no-print">
+        <button class="btn-print" onclick="window.print()">Print Receipt</button>
+    </div>
+
+    <div class="receipt-container" id="receipt">
+        <div class="content-wrapper">
+            <div class="header">
+                <img src="images/logo.png" alt="Logo" class="logo">
+            </div>
+
+            <h2>PAYMENT RECEIPT</h2>
+
+            <div class="details-grid" id="receipt-details"></div>
+
+            <table class="payment-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Installment</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+
+            <div class="totals-section" id="totals"></div>
+        </div>
+
+        <p class="footer-note">THIS PAYMENT IS NON-TRANSFERABLE AND NON-REFUNDABLE</p>
+    </div>
+
+    <script src="bill.js"></script>
+</body>
+
+</html>
